@@ -13,7 +13,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   const value = cookie.get('auth')?.value
   const hasKey = cookie.has('auth')
 
-  if (hasKey && !value) redirect(route.signin)
+  if (!hasKey && !value) redirect(route.signin)
 
   return (
     <div className='mx-6'>
