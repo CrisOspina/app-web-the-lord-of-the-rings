@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "./node_modules/standard/eslintrc.json",
+    "prettier"
+  ],
+  "rules": {
+    "space-before-function-paren": "off",
+    "react/jsx-closing-bracket-location": "off",
+    "react/jsx-curly-newline": "off",
+    "multiline-ternary": "off"
+  }
+}
