@@ -1,4 +1,4 @@
-type HttpResponse<T> = { get: () => Promise<T> }
+type HttpResponse<T> = { get: (controller?: string) => Promise<T> }
 
 type Url = 'the-one-api' | ''
 
