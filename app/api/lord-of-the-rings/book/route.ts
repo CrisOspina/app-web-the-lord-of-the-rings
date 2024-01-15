@@ -1,14 +1,5 @@
-import { http } from '../../_http'
-import { controller } from '../../_lib/the-open-api-v2/types/controller'
-
-type Book = {
-  docs: { _id: string; name: string }[]
-  total: number
-  limit: number
-  offset: number
-  page: number
-  pages: number
-}
+import { http } from '@/app/api/_http'
+import { controller, type Book } from '@/app/api/_external-libs/the-open-api-v2'
 
 export async function GET() {
   const data = await http<Book>('the-one-api').get(controller.book)
