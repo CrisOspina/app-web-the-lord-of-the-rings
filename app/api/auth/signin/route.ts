@@ -1,7 +1,7 @@
 import { Buffer } from 'buffer'
 import { cookies } from 'next/headers'
 
-export const NAME_COOKIE = 'auth'
+const NAME_COOKIE = 'auth'
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
