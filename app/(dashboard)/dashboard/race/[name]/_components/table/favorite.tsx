@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect } from 'react'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 import { CellContext } from '@tanstack/react-table'
