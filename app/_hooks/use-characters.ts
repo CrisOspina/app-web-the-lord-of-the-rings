@@ -6,17 +6,18 @@ import { type PaginationState } from '@tanstack/react-table'
 import { http } from '@/app/api/_http'
 import { type Character } from '@/app/api/_external-libs/the-open-api-v2'
 import { controller } from '@/app/api/lord-of-the-rings/_controller'
+import { toCapitalize } from '@/app/_utils'
 
 type Props = { race: string; name?: string }
 
 const initialValue = { pageIndex: 0, pageSize: 10 }
 
-export function useCaractersForRace({ race, name }: Props) {
+export function useCharacters({ race, name }: Props) {
   const [pagination, setPagination] = useState<PaginationState>(initialValue)
   const fetchDataOptions = { ...pagination, race, name }
 
   const query = useQuery({
-    queryKey: ['data', fetchDataOptions],
+    queryKey: ['characters-by-filters', fetchDataOptions],
     placeholderData: keepPreviousData,
     staleTime: Infinity,
     queryFn: async () => {
@@ -26,7 +27,7 @@ export function useCaractersForRace({ race, name }: Props) {
       let url = `${controller.character}?${limit}&${offset}&${nameRace}`
 
       if (name) {
-        url = `${controller.character}?name=${name}`
+        url = `${controller.character}?name=${toCapitalize(name)}`
       }
 
       return await http<Character>('lord-of-the-rings').get(url)
