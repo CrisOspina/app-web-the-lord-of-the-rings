@@ -1,4 +1,7 @@
 {
+  "globals": {
+    "JSX": true
+  },
   "extends": [
     "next/core-web-vitals",
     "./node_modules/standard/eslintrc.json",
