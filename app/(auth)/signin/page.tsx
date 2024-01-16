@@ -1,7 +1,7 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import Form from './_components/form'
-import Link from 'next/link'
 
 export default function Page() {
   return (

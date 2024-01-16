@@ -1,7 +1,8 @@
-import { route } from '@/app/_constants/routes'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import type { ReactNode } from 'react'
+
+import { route } from '@/app/_constants/routes'
 
 export default function Layout({ children }: { children: ReactNode }) {
   const cookie = cookies()
