@@ -16,8 +16,13 @@ import { useCharactersFavorites } from '../_store'
 export default function Header() {
   const router = useRouter()
   const { mutate } = useSignOut()
+
   const charactersFavorites = useCharactersFavorites(
     (state) => state.charactersFavorites
+  )
+
+  const resetCharactersFavorites = useCharactersFavorites(
+    (state) => state.actions?.setInitialState
   )
 
   return (
@@ -52,7 +57,23 @@ export default function Header() {
           as='p'
           size='md'
           className='font-lucida-reg text-yellow-106-2 uppercase cursor-pointer'
-          onClick={() => mutate()}>
+          onClick={() => {
+            resetCharactersFavorites?.()
+            window.localStorage.clear()
+            window.location.reload()
+          }}>
+          Reset Favorites
+        </Text>
+
+        <Text
+          as='p'
+          size='md'
+          className='font-lucida-reg text-yellow-106-2 uppercase cursor-pointer'
+          onClick={() => {
+            resetCharactersFavorites?.()
+            window.localStorage.clear()
+            return mutate()
+          }}>
           Sign Out
         </Text>
       </div>

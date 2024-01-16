@@ -14,12 +14,6 @@ export default function NotFound() {
         className='text-yellow-105-2 mt-10 text-center font-harrington'>
         ...Not found...
       </Text>
-
-      <img
-        src='/bg/character-gollum.svg'
-        alt='gollum'
-        className='opacity-50 y- select-none'
-      />
     </div>
   )
 }

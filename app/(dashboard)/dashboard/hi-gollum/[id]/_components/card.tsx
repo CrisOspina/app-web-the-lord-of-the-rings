@@ -35,7 +35,7 @@ export default function Card({ id }: Props) {
             <Paragraph title='Birth' subtitle={gollum?.birth ?? ''} />
             <Paragraph title='Death' subtitle={gollum?.death ?? ''} />
 
-            <div className='w-full flex justify-center'>
+            <div className='w-auto flex justify-center bg-transparent transition-all duration-500 ease-in-out'>
               <Link
                 className='mt-8'
                 href={gollum?.wikiUrl ?? ''}
@@ -44,7 +44,7 @@ export default function Card({ id }: Props) {
                 <Text
                   as='span'
                   size='md'
-                  className='font-lucida-reg text-yellow-106-2 uppercase'>
+                  className='font-lucida-reg text-yellow-106-2 uppercase w-auto flex justify-center p-[11px] px-[38px] border-2 border-yellow-106-2 bg-transparent transition-all duration-500 ease-in-out'>
                   More details
                 </Text>
               </Link>

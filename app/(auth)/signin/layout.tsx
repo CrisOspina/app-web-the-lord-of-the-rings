@@ -13,7 +13,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   if (hasKey && value) redirect(route.dashboard)
 
   return (
-    <div className="bg-[url('/bg/bg-signin.svg')] w-screen h-screen bg-no-repeat bg-cover">
+    <div className="bg-[url('/bg/bg-signin.svg')] w-screen min-h-screen bg-no-repeat bg-cover">
       {children}
     </div>
   )

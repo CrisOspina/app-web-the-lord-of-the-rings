@@ -24,7 +24,7 @@ export default function Card() {
       </Text>
 
       {charactersFavorites?.length > 0 ? (
-        <section className='flex gap-x-4 justify-center px-32'>
+        <section className='flex flex-wrap gap-x-4 justify-center px-32'>
           {charactersFavorites.map((character) => (
             <div
               key={character._id}

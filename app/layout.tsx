@@ -8,13 +8,13 @@ import { localFonts } from './_fonts/fonts'
 import ProviderHydrated from './_providers/provider-hydrated'
 
 export const metadata: Metadata = {
-  title: 'El Señor de los Anillos - Universo Tolkien',
-  description: 'El Señor de los Anillos - Universo Tolkien - App'
+  title: 'The lord of the rings - Universe Tolkien',
+  description: 'The lord of the rings - Universe Tolkien'
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang='es'>
+    <html lang='en'>
       <body className={localFonts}>
         <ProviderQuery>
           <ProviderHydrated>{children}</ProviderHydrated>

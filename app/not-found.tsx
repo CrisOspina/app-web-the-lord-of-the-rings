@@ -5,7 +5,7 @@ import { route } from './_constants/routes'
 
 export default function NotFound() {
   return (
-    <main className='flex justify-center items-center w-screen h-screen flex-col gap-y-6 bg-[url("/bg/bg-gollum.svg")] bg-cover bg-no-repeat'>
+    <main className='flex justify-center items-center w-screen min-h-screen flex-col gap-y-6 bg-[url("/bg/bg-dashboard.svg")] bg-cover bg-no-repeat'>
       <Text className='!text-[48px] text-yellow-106-2'>Hmmm!</Text>
 
       <Text size='2xl' className='mb-4 text-yellow-106-2 font-harrington'>

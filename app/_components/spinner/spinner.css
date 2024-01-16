@@ -9,9 +9,9 @@
 
 @keyframes animloader {
   0% {
-    box-shadow: -72px 0 #fff inset;
+    box-shadow: -72px 0 #ffbe57 inset;
   }
   100% {
-    box-shadow: 48px 0 #fff inset;
+    box-shadow: 48px 0 #ffbe57 inset;
   }
 }

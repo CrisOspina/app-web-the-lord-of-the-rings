@@ -6,7 +6,6 @@ import { CellContext } from '@tanstack/react-table'
 
 import { useCharactersFavorites } from '@/app/(dashboard)/dashboard/_store'
 
-import Text from '@/app/_components/text'
 import { route } from '@/app/_constants/routes'
 import { DocsCharacter } from '@/app/api/_external-libs/the-open-api-v2'
 
@@ -43,12 +42,14 @@ export default function Favorite({ row }: CellContext<DocsCharacter, any>) {
   if (hasFavorites) {
     return (
       <div className='flex gap-x-2 items-center'>
-        <Text
-          className='font-harrington cursor-pointer'
-          size='2xl'
-          onClick={() => removeCharacterFavorite?.(row.original._id)}>
-          ❤️
-        </Text>
+        <img
+          src='/icons/heart-active.svg'
+          alt='icon-heart-active'
+          className='cursor-pointer mb-2'
+          onClick={() => removeCharacterFavorite?.(row.original._id)}
+        />
+
+        <Summary summary={row.original} name={row.original.name} />
       </div>
     )
   }

@@ -4,7 +4,7 @@ import { useParams } from 'next/navigation'
 import { type ReactNode } from 'react'
 import cls from 'classnames'
 
-const defaultCss = 'w-screen h-screen bg-no-repeat bg-cover'
+const defaultCss = 'w-screen min-h-screen bg-no-repeat bg-cover'
 
 export default function BgForRace({ children }: { children: ReactNode }) {
   const params = useParams() as { name: string }

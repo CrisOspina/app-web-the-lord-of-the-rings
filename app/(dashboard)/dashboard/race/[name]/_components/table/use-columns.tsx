@@ -29,7 +29,7 @@ export function useColumns() {
         enableColumnFilter: false,
         cell: (info) => {
           return (
-            <Text className='font-harrington'>
+            <Text className='font-lucida-reg'>
               {getValue(info.getValue() as string) ?? ''}
             </Text>
           )
@@ -41,7 +41,7 @@ export function useColumns() {
         enableColumnFilter: false,
         cell: (info) => {
           return (
-            <Text className='font-harrington'>
+            <Text className='font-lucida-reg'>
               {getValue(info.getValue() as string) ?? ''}
             </Text>
           )
@@ -52,7 +52,7 @@ export function useColumns() {
         enableColumnFilter: true,
         header: 'Name',
         cell: (info) => (
-          <Text className='font-harrington'>
+          <Text className='font-lucida-reg'>
             {getValue(info.getValue() as string) ?? ''}
           </Text>
         )
@@ -62,7 +62,7 @@ export function useColumns() {
         header: 'Hair',
         enableColumnFilter: false,
         cell: (info) => (
-          <Text className='font-harrington'>
+          <Text className='font-lucida-reg'>
             {getValue(info.getValue() as string) ?? ''}
           </Text>
         )
@@ -72,7 +72,7 @@ export function useColumns() {
         header: 'Birth',
         enableColumnFilter: false,
         cell: (info) => (
-          <Text className='font-harrington'>
+          <Text className='font-lucida-reg'>
             {getValue(info.getValue() as string) ?? ''}
           </Text>
         )
@@ -82,7 +82,7 @@ export function useColumns() {
         header: 'Death',
         enableColumnFilter: false,
         cell: (info) => (
-          <Text className='font-harrington'>
+          <Text className='font-lucida-reg'>
             {getValue(info.getValue() as string) ?? ''}
           </Text>
         )
@@ -98,7 +98,7 @@ export function useColumns() {
 
           return (
             <a href={value} target='_blank' rel='noreferrer'>
-              <Text className='font-harrington underline'>Wiki</Text>
+              <Text className='font-lucida-reg underline'>Wiki</Text>
             </a>
           )
         }

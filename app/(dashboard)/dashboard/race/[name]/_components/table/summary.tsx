@@ -17,6 +17,11 @@ type Props = {
   name: string
 }
 
+const getValue = (value: string) => {
+  if (value === 'NaN' || !value) return ''
+  return value
+}
+
 export default function Summary({ summary, name }: Props) {
   return (
     <AlertDialog>
@@ -43,7 +48,7 @@ export default function Summary({ summary, name }: Props) {
                     <Text
                       as='span'
                       className='font-lucida-reg text-yellow-106-2 !font-normal'>
-                      {value}
+                      {getValue(value)}
                     </Text>
                   </Text>
                 )
