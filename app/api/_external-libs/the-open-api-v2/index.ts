@@ -1,3 +1,5 @@
 export * from './intefaces/book'
 export * from './intefaces/character'
+export * from './intefaces/character-quote-by-id'
+export * from './intefaces/character-by-id'
 export * from './constants'
