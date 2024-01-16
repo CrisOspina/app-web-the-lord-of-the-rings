@@ -9,7 +9,7 @@ export default function ButtonSignOut() {
 
   return (
     <button className='btn' onClick={onLogout}>
-      Cerrar sesión
+      Sign Out
     </button>
   )
 }

@@ -11,9 +11,14 @@ import { useSignOut } from '@/app/_hooks'
 import Button from '@/app/_components/button'
 import Text from '@/app/_components/text'
 
+import { useCharactersFavorites } from '../_store'
+
 export default function Header() {
   const router = useRouter()
   const { mutate } = useSignOut()
+  const charactersFavorites = useCharactersFavorites(
+    (state) => state.charactersFavorites
+  )
 
   return (
     <header className='w-full bg-blue-102-1 py-0 px-[75px] h-[131px] flex items-center justify-between'>
@@ -27,13 +32,17 @@ export default function Header() {
       </Link>
 
       <div className='flex items-center gap-x-[30px]'>
-        <Button className='flex items-center gap-x-1'>
+        <Button
+          className='flex items-center gap-x-1'
+          disabled={!charactersFavorites?.length}
+          onClick={() => router.push(route.charactersFavorites)}>
           <Text
             as='span'
             size='md'
-            className='font-lucida-reg text-yellow-106-2 uppercase'
-            onClick={() => router.push(route.charactersFavorites)}>
-            Favoritos
+            className='font-lucida-reg text-yellow-106-2 uppercase'>
+            {!charactersFavorites?.length
+              ? 'and your favorite characters?'
+              : 'Character Favorites'}
           </Text>
 
           <img src='/icons/heart.svg' alt='icon-heart' />
@@ -44,7 +53,7 @@ export default function Header() {
           size='md'
           className='font-lucida-reg text-yellow-106-2 uppercase cursor-pointer'
           onClick={() => mutate()}>
-          Cerrar sesión
+          Sign Out
         </Text>
       </div>
     </header>

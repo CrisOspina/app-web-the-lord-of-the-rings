@@ -1,11 +1,11 @@
 import Header from '../_components/header'
-import Table from './_components/table/table'
+import Card from './_components/card/card'
 
 export default function Page() {
   return (
     <main>
       <Header />
-      <Table />
+      <Card />
     </main>
   )
 }

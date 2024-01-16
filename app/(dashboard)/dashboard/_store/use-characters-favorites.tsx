@@ -29,14 +29,12 @@ export const useCharactersFavorites = create<Store>()(
         actions: {
           addCharacterFavorite: (character) => {
             return set((state: Store) => ({
-              ...state,
               charactersFavorites: state.charactersFavorites.concat(character)
             }))
           },
           setInitialState: () => set(() => initialState),
           removeCharacterFavorite: (id: string) => {
             return set((state: Store) => ({
-              ...state,
               charactersFavorites: state.charactersFavorites.filter(
                 (character) => {
                   return character._id !== id
