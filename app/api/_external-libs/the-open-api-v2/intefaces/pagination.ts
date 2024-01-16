@@ -1,5 +1,4 @@
-type Book = {
-  docs: { _id: string; name: string }[]
+type Pagination = {
   total: number
   limit: number
   offset: number
@@ -7,4 +6,4 @@ type Book = {
   pages: number
 }
 
-export type { Book }
+export type { Pagination }

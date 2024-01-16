@@ -1,3 +1,3 @@
-export * from './types/book'
-export * from './types/controller'
+export * from './intefaces/book'
+export * from './intefaces/character'
 export * from './constants'

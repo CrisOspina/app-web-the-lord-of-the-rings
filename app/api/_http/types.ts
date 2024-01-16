@@ -1,5 +1,16 @@
-type HttpResponse<T> = { get: (controller?: string) => Promise<T> }
+import { EndpointExternalLordOfTheRings } from '../_external-libs/the-open-api-v2/types-url'
 
-type Url = 'the-one-api' | ''
+import { EndpointAuth } from '../auth/_types-url'
+import { EndpointLordOfTheRings } from '../lord-of-the-rings/_types-url'
 
-export type { Url, HttpResponse }
+type Controller = string
+
+type HttpResponse<T> = { get: (controller?: Controller) => Promise<T> }
+
+type Url =
+  | EndpointExternalLordOfTheRings
+  | EndpointLordOfTheRings
+  | EndpointAuth
+  | ''
+
+export type { Url, HttpResponse, Controller }
