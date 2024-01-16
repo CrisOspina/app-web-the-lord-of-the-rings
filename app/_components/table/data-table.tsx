@@ -1,13 +1,30 @@
 'use client'
 
-import { useMemo, type Dispatch, type SetStateAction } from 'react'
+import { useMemo, type Dispatch, type SetStateAction, useState } from 'react'
+
 import {
   PaginationState,
   useReactTable,
   getCoreRowModel,
   ColumnDef,
-  flexRender
+  flexRender,
+  ColumnFiltersState,
+  getFilteredRowModel
 } from '@tanstack/react-table'
+
+import {
+  Table as TableUI,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow
+} from './table'
+
+import Button from '../button'
+import Text from '../text'
+import Spinner from '../spinner'
+import { Filter } from './filter'
 
 type Props<T> = {
   data: T[]
@@ -31,6 +48,8 @@ export default function Table<T>({
   const defaultData = useMemo(() => [], [])
   const { pageIndex, pageSize, setPagination } = paginationProps
 
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
+
   const pagination = useMemo(
     () => ({ pageIndex, pageSize }),
     [pageIndex, pageSize]
@@ -40,120 +59,135 @@ export default function Table<T>({
     data: data ?? defaultData,
     columns,
     pageCount: pageCount ?? -1,
-    state: { pagination },
+    state: { pagination, columnFilters },
+    onColumnFiltersChange: setColumnFilters,
     onPaginationChange: setPagination,
     getCoreRowModel: getCoreRowModel(),
     manualPagination: true,
+    getFilteredRowModel: getFilteredRowModel(),
     debugTable: true
   })
 
   return (
     <div className='p-2'>
-      <div className='h-2' />
-      <table>
-        <thead>
+      <TableUI>
+        <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
+            <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
                 return (
-                  <th key={header.id} colSpan={header.colSpan}>
+                  <TableHead key={header.id} colSpan={header.colSpan}>
                     {header.isPlaceholder ? null : (
-                      <div>
+                      <>
                         {flexRender(
                           header.column.columnDef.header,
                           header.getContext()
                         )}
-                      </div>
+
+                        {header.column.getCanFilter() ? (
+                          <Filter column={header.column} />
+                        ) : null}
+                      </>
                     )}
-                  </th>
+                  </TableHead>
                 )
               })}
-            </tr>
+            </TableRow>
           ))}
-        </thead>
+        </TableHeader>
 
-        <tbody>
+        <TableBody>
           {table.getRowModel().rows.map((row) => {
             return (
-              <tr key={row.id}>
+              <TableRow key={row.id}>
                 {row.getVisibleCells().map((cell) => {
                   return (
-                    <td key={cell.id}>
+                    <TableCell key={cell.id}>
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
                       )}
-                    </td>
+                    </TableCell>
                   )
                 })}
-              </tr>
+              </TableRow>
             )
           })}
-        </tbody>
-      </table>
+        </TableBody>
+      </TableUI>
 
-      <div className='h-2' />
-
-      <div className='flex items-center gap-2'>
-        <button
+      <div className='flex items-center gap-2 mt-4'>
+        <Button
           className='border rounded p-1'
           onClick={() => table.setPageIndex(0)}
           disabled={!table.getCanPreviousPage()}>
-          {'<<'}
-        </button>
-        <button
+          <Text
+            as='span'
+            size='md'
+            className='font-lucida-reg text-yellow-106-2 uppercase'>
+            {'<<'}
+          </Text>
+        </Button>
+
+        <Button
           className='border rounded p-1'
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}>
-          {'<'}
-        </button>
-        <button
+          <Text
+            as='span'
+            size='md'
+            className='font-lucida-reg text-yellow-106-2 uppercase'>
+            {'<'}
+          </Text>
+        </Button>
+
+        <Button
           className='border rounded p-1'
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}>
-          {'>'}
-        </button>
-        <button
+          <Text
+            as='span'
+            size='md'
+            className='font-lucida-reg text-yellow-106-2 uppercase'>
+            {'>'}
+          </Text>
+        </Button>
+
+        <Button
           className='border rounded p-1'
           onClick={() => table.setPageIndex(table.getPageCount() - 1)}
           disabled={!table.getCanNextPage()}>
-          {'>>'}
-        </button>
-        <span className='flex items-center gap-1'>
+          <Text
+            as='span'
+            size='md'
+            className='font-lucida-reg text-yellow-106-2 uppercase'>
+            {'>>'}
+          </Text>
+        </Button>
+
+        <Text className='flex items-center gap-1 font-lucida-reg text-yellow-106-2 uppercase'>
           <div>Page</div>
           <strong>
             {table.getState().pagination.pageIndex + 1} of{' '}
             {table.getPageCount()}
           </strong>
-        </span>
-        <span className='flex items-center gap-1'>
-          | Go to page:
-          <input
-            type='number'
-            defaultValue={table.getState().pagination.pageIndex + 1}
-            onChange={(e) => {
-              const page = e.target.value ? Number(e.target.value) - 1 : 0
-              table.setPageIndex(page)
-            }}
-            className='border p-1 rounded w-16'
-          />
-        </span>
+        </Text>
+
         <select
+          className='border text-yellow-106-2 uppercase p-1 bg-[#1b2526cc]'
           value={table.getState().pagination.pageSize}
           onChange={(e) => {
             table.setPageSize(Number(e.target.value))
           }}>
-          {[10, 20, 30, 40, 50].map((pageSize) => (
+          {[10, 20].map((pageSize) => (
             <option key={pageSize} value={pageSize}>
-              Show {pageSize}
+              {pageSize}
             </option>
           ))}
         </select>
-        {isLoading ? 'Loading...' : null}
-      </div>
-      <div>{table.getRowModel().rows.length} Rows</div>
 
-      <pre>{JSON.stringify(pagination, null, 2)}</pre>
+        {isLoading ? <Spinner /> : null}
+      </div>
     </div>
   )
 }
