@@ -34,19 +34,26 @@ export const useCharactersFavorites = create<Store>()(
           },
           setInitialState: () => set(() => initialState),
           removeCharacterFavorite: (id: string) => {
-            return set((state: Store) => ({
-              charactersFavorites: state.charactersFavorites.filter(
-                (character) => {
-                  return character._id !== id
-                }
+            return set((state: Store) => {
+              const newCharactersFavorites = state.charactersFavorites.filter(
+                (fav) => fav?._id !== id
               )
-            }))
+
+              return {
+                charactersFavorites: newCharactersFavorites
+              }
+            })
           }
         }
       }
     },
     {
-      name: KEY_STORAGE_CHARACTERS_FAVORITES
+      name: KEY_STORAGE_CHARACTERS_FAVORITES,
+      partialize: (state) => {
+        return {
+          charactersFavorites: state.charactersFavorites
+        }
+      }
     }
   )
 )
