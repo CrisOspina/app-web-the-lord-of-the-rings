@@ -69,7 +69,7 @@ export default function Table<T>({
   })
 
   return (
-    <div className='p-2'>
+    <>
       <TableUI>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -116,7 +116,7 @@ export default function Table<T>({
         </TableBody>
       </TableUI>
 
-      <div className='flex items-center gap-2 mt-4'>
+      <div className='flex items-center gap-2 mt-4 flex-wrap'>
         <Button
           className='border rounded p-1'
           onClick={() => table.setPageIndex(0)}
@@ -188,6 +188,6 @@ export default function Table<T>({
 
         {isLoading ? <Spinner /> : null}
       </div>
-    </div>
+    </>
   )
 }

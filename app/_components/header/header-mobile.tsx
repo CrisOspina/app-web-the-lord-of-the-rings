@@ -32,7 +32,7 @@ export default function HeaderMobile() {
 
   return (
     <header className='block lg:hidden'>
-      <div className='flex justify-between items-center px-14 h-[120px]'>
+      <div className='flex justify-between items-center px-5 h-[120px] bg-[#1b2526fa]'>
         <Link href={route.dashboard}>
           <Image
             src='/logos/logo-title.png'
@@ -42,11 +42,16 @@ export default function HeaderMobile() {
           />
         </Link>
 
-        <Hamburger color='yellow' toggled={isOpen} size={20} toggle={setOpen} />
+        <Hamburger
+          color='#FFBE57'
+          toggled={isOpen}
+          size={20}
+          toggle={setOpen}
+        />
       </div>
 
       {isOpen && (
-        <div className='fixed left-0 shadow-4xl right-0 top-[7rem] py-5 pt-0 bg-[#1b2526b3] border-b border-b-white/20 h-full z-10'>
+        <div className='fixed left-0 shadow-4xl right-0 top-[7rem] py-5 pt-0 bg-[#1b2526fa] border-b h-full z-10'>
           <div className='grid gap-2'>
             <Button
               className='flex items-center justify-center gap-x-1 w-full'

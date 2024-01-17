@@ -12,7 +12,7 @@ export default function Navbar() {
   const pathname = usePathname()
 
   return (
-    <nav className='hidden lg:block mt-6 m-auto'>
+    <nav className='hidden lg:block mt-6 m-auto mb-6'>
       <ul className='flex justify-center gap-x-10'>
         {races.map((race) => (
           <li

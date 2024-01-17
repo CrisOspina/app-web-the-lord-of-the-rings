@@ -6,6 +6,7 @@ import { useCharacters, useDebounce } from '@/app/_hooks'
 
 import TableUI from '@/app/_components/table'
 import Spinner from '@/app/_components/spinner'
+import Input from '@/app/_components/input'
 
 import NotFound from './not-found'
 import { useColumns } from './use-columns'
@@ -28,11 +29,11 @@ export default function Table({ race }: Props) {
 
   return (
     <>
-      <input
+      <Input
         type='text'
         placeholder='Search...'
+        className='w-full lg:w-[400px] mb-6'
         onChange={(ev) => setSearch(ev.target.value)}
-        className='rounded-sm w-[400px] border-2 border-yellow-105-2 bg-blue-102-1 p-2 my-10 focus:ring-0 focus:outline-none focus-visible:ring-0 text-white'
       />
 
       {hasData ? (

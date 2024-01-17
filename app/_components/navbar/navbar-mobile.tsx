@@ -12,7 +12,7 @@ export default function NavbarMobile() {
   const pathname = usePathname()
 
   return (
-    <nav className='block lg:hidden mt-6 m-auto'>
+    <nav className='block lg:hidden mt-6 m-auto mb-6'>
       <ul className='flex flex-col gap-x-10'>
         {races.map((race) => (
           <li

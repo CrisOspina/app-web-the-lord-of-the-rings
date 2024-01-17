@@ -12,7 +12,7 @@ export default function ButtonSignin() {
 
   return (
     <Button
-      className='absolute top-[77px] right-[95px] md:right-[126px] z-10'
+      className='absolute right-[40px] md:right-[126px] z-10'
       onClick={() => router.push(route.signin)}>
       <Text
         as='span'

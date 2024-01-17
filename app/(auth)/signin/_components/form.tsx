@@ -12,7 +12,9 @@ export default function Form() {
   const { register, onSubmit, errors } = useForm()
 
   return (
-    <form className='flex flex-col w-full px-[137px]' onSubmit={onSubmit}>
+    <form
+      className='flex flex-col w-full px-10 lg:px-[137px]'
+      onSubmit={onSubmit}>
       <Input
         id='username'
         label='USER'
