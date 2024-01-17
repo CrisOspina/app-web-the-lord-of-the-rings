@@ -6,18 +6,18 @@ import Link from 'next/link'
 import { route } from '@/app/_constants/routes'
 import Text from '@/app/_components/text'
 
-const races = ['Human', 'Elf', 'Orc', 'Hobbit', 'Ainur', 'Dwarf']
+export const races = ['Human', 'Elf', 'Orc', 'Hobbit', 'Ainur', 'Dwarf']
 
-export default function Links() {
+export default function Navbar() {
   const pathname = usePathname()
 
   return (
-    <nav className='mt-6 m-auto'>
+    <nav className='hidden lg:block mt-6 m-auto'>
       <ul className='flex justify-center gap-x-10'>
         {races.map((race) => (
           <li
             key={race}
-            className={`${pathname === `${route.race}/${race}` ? 'bg-blue-102-2' : ''}`}>
+            className={`text-center ${pathname === `${route.race}/${race}` ? 'bg-blue-102-2' : ''}`}>
             <Link href={`${route.race}/${race}`}>
               <Text
                 size='md'
