@@ -21,7 +21,7 @@ export default function Links() {
             <Link href={`${route.race}/${race}`}>
               <Text
                 size='md'
-                className='px-[45px] py-[11px] hover:bg-blue-102-2 text-yellow-106-2 text-center font-semibold uppercase'>
+                className='px-[45px] py-[11px] hover:bg-blue-102-2 text-yellow-106-2 text-center uppercase'>
                 {race}
               </Text>
             </Link>

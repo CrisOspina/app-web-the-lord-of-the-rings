@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation'
 
 import { route } from '@/app/_constants/routes'
 
-import Links from './_components/links'
+import Links from '@/app/_components/links'
 import Header from '../_components/header'
 import BgForRace from './_components/bg-for-race'
 

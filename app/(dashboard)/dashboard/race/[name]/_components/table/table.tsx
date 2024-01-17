@@ -30,7 +30,7 @@ export default function Table({ race }: Props) {
     <>
       <input
         type='text'
-        placeholder='Search character for name - example: gollum'
+        placeholder='Search...'
         onChange={(ev) => setSearch(ev.target.value)}
         className='rounded-sm w-[400px] border-2 border-yellow-105-2 bg-blue-102-1 p-2 my-10 focus:ring-0 focus:outline-none focus-visible:ring-0 text-white'
       />

@@ -14,13 +14,13 @@ export default function Paragraph({
       {title && subtitle ? (
         <Text
           as='p'
-          className='font-lucida-reg text-brown-106-1 !font-normal leading-6 text-center mt-[23px] mb-10'
-          size='lg'>
+          className='text-left font-lucida-reg text-brown-106-1 !font-normal leading-6 mt-[23px] mb-3 uppercase'
+          size='sm'>
           {title}:{' '}
           <Text
             as='span'
             className='font-lucida-reg !font-normal leading-6 text-white-100'
-            size='lg'>
+            size='sm'>
             {subtitle}
           </Text>
         </Text>

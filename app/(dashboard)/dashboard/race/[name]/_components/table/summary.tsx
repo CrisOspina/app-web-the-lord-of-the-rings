@@ -26,7 +26,7 @@ export default function Summary({ summary, name }: Props) {
   return (
     <AlertDialog>
       <AlertDialogTrigger>
-        <Text className='font-harrington'>Open Detail</Text>
+        <Text className='font-harrington underline'>Open Detail</Text>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>

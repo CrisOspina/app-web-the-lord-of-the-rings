@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import Links from '../../race/_components/links'
+import Links from '@/app/_components/links'
 import Header from '../../_components/header'
 
 import Card from './_components/card'
