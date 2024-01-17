@@ -29,14 +29,14 @@ export default function CardQuotes({ id }: Props) {
     <>
       <Text
         as='p'
-        className='font-lucida-reg text-brown-104-1 !font-normal leading-6 text-center mt-[30px]'
+        className='font-lucida-reg text-brown-104-1 !font-normal leading-6 text-left lg:text-center mt-[30px]'
         size='lg'>
         {quoteMain?.dialog ?? ''}
       </Text>
 
       <Text
         as='p'
-        className='font-lucida-reg text-brown-104-1 !font-normal leading-6 text-center mt-2'
+        className='font-lucida-reg text-brown-104-1 !font-normal leading-6 text-left lg:text-center mt-2'
         size='lg'>
         {quoteSecondary?.dialog ?? ''}
       </Text>

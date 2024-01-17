@@ -20,7 +20,7 @@ export default function Card({ id }: Props) {
     <>
       <div>
         <Text
-          as='p'
+          as='h1'
           className='font-harrington text-brown-106-1 !font-normal text-center mb-4'
           size='4xl'>
           Gollum
@@ -35,7 +35,7 @@ export default function Card({ id }: Props) {
             <Paragraph title='Birth' subtitle={gollum?.birth ?? ''} />
             <Paragraph title='Death' subtitle={gollum?.death ?? ''} />
 
-            <div className='w-auto flex justify-center bg-transparent transition-all duration-500 ease-in-out'>
+            <div className='absolute bottom-[450px] right-10 lg:static lg:w-auto flex justify-center bg-transparent transition-all duration-500 ease-in-out'>
               <Link
                 className='mt-8'
                 href={gollum?.wikiUrl ?? ''}
@@ -50,7 +50,9 @@ export default function Card({ id }: Props) {
               </Link>
             </div>
 
-            <CardQuotes id={id} />
+            <div className='absolute lg:static bottom-64 w-80 right-24'>
+              <CardQuotes id={id} />
+            </div>
           </>
         )}
       </div>

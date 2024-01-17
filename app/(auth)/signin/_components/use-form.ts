@@ -14,17 +14,11 @@ const schema = object({
   username: string()
     .trim()
     .required('El nombre de usuario es requerido')
-    .oneOf(
-      [USERNAME_DEFAULT],
-      'Usuario incorrecto, verifica e intentalo nuevamente'
-    ),
+    .oneOf([USERNAME_DEFAULT], 'Incorrect user, check and try again'),
   password: string()
     .trim()
     .required('La contraseña es requerida')
-    .oneOf(
-      [PASSWORD_DEFAULT],
-      'Contraseña incorrecta, verifica e intentalo nuevamente'
-    )
+    .oneOf([PASSWORD_DEFAULT], 'Incorrect password, check and try again')
 }).required()
 
 export function useForm() {
