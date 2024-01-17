@@ -8,7 +8,11 @@ import Text from '@/app/_components/text'
 
 import { races } from './navbar'
 
-export default function NavbarMobile() {
+type Props = {
+  closeNavbar: () => void
+}
+
+export default function NavbarMobile({ closeNavbar }: Props) {
   const pathname = usePathname()
 
   return (
@@ -17,7 +21,8 @@ export default function NavbarMobile() {
         {races.map((race) => (
           <li
             key={race}
-            className={`${pathname === `${route.race}/${race}` ? 'bg-blue-102-2' : ''}`}>
+            className={`${pathname === `${route.race}/${race}` ? 'bg-blue-102-2' : ''}`}
+            onClick={closeNavbar}>
             <Link href={`${route.race}/${race}`}>
               <Text
                 size='md'

@@ -31,7 +31,7 @@ export default function HeaderMobile() {
   const [isOpen, setOpen] = useState(false)
 
   return (
-    <header className='block lg:hidden'>
+    <header className='block mb-6 lg:hidden'>
       <div className='flex justify-between items-center px-5 h-[120px] bg-[#1b2526fa]'>
         <Link href={route.dashboard}>
           <Image
@@ -69,7 +69,7 @@ export default function HeaderMobile() {
               <img src='/icons/heart.svg' alt='icon-heart' />
             </Button>
 
-            <NavbarMobile />
+            <NavbarMobile closeNavbar={() => setOpen(false)} />
 
             <Text
               as='p'

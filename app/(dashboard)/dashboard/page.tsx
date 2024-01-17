@@ -13,7 +13,7 @@ export default function Page() {
         className='w-full mb-[28px] text-center mt-[50px] text-brown-106-1 font-lucida-reg !font-normal !tracking-[0.25px]'
         size='2xl'
         as='h1'>
-        Razas
+        Race
       </Text>
 
       <main>
@@ -23,7 +23,7 @@ export default function Page() {
               <Text
                 className='absolute uppercase bottom-5 w-full text-center mt-[50px] text-yellow-106-2 font-lucida-reg !font-semibold !tracking-[0.25px]'
                 size='sm'>
-                Hombres
+                Human
               </Text>
             </div>
           </Link>
@@ -33,7 +33,7 @@ export default function Page() {
               <Text
                 className='absolute uppercase bottom-5 w-full text-center mt-[50px] text-yellow-106-2 font-lucida-reg !font-semibold !tracking-[0.25px]'
                 size='sm'>
-                Elfos
+                Elf
               </Text>
             </div>
           </Link>
@@ -43,7 +43,7 @@ export default function Page() {
               <Text
                 className='absolute uppercase bottom-5 w-full text-center mt-[50px] text-yellow-106-2 font-lucida-reg !font-semibold !tracking-[0.25px]'
                 size='sm'>
-                Hobbits
+                Hobbit
               </Text>
             </div>
           </Link>
@@ -65,7 +65,7 @@ export default function Page() {
               <Text
                 className='absolute uppercase bottom-5 w-full text-center mt-[50px] text-yellow-106-2 font-lucida-reg !font-semibold !tracking-[0.25px]'
                 size='sm'>
-                Orcos
+                Orc
               </Text>
             </div>
           </Link>
@@ -75,7 +75,7 @@ export default function Page() {
               <Text
                 className='absolute uppercase bottom-5 w-full text-center mt-[50px] text-yellow-106-2 font-lucida-reg !font-semibold !tracking-[0.25px]'
                 size='sm'>
-                Enanos
+                Dwarf
               </Text>
             </div>
           </Link>

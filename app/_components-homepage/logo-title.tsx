@@ -14,7 +14,7 @@ export default function LogoTitle() {
       <Image
         src='/logos/logo-title.png'
         alt='logo title main'
-        className='left-10 absolute md:hidden'
+        className='left-5 absolute lg:hidden'
         width={120.384}
         height={28.313}
       />
