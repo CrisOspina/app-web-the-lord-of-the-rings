@@ -30,6 +30,12 @@ username: smeagol
 password: gollum
 ```
 
+Run build for test:
+
+```bash
+pnpm test
+```
+
 Run build for production:
 
 ```bash
