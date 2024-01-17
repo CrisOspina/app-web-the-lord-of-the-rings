@@ -2,7 +2,6 @@
 'use client'
 
 import { useCharactersFavorites } from '@/app/(dashboard)/dashboard/_store'
-import Button from '@/app/_components/button'
 import Text from '@/app/_components/text'
 
 import Paragraph from './paragraph'
