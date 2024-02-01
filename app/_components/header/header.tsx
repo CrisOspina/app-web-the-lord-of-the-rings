@@ -4,6 +4,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import cls from 'classnames'
 
 import { route } from '@/app/_constants/routes'
 import { useSignOut } from '@/app/_hooks'
@@ -40,19 +41,29 @@ export default function Header() {
 
         <div className='flex items-center gap-x-[30px]'>
           <Button
-            className='flex items-center gap-x-1'
+            className={cls(
+              'flex items-center gap-x-1',
+              !charactersFavorites?.length && 'cursor-not-allowed opacity-10'
+            )}
             disabled={!charactersFavorites?.length}
             onClick={() => router.push(route.charactersFavorites)}>
             <Text
               as='span'
               size='md'
               className='font-lucida-reg text-yellow-106-2 uppercase'>
-              {!charactersFavorites?.length
-                ? 'and your favorite characters?'
-                : 'Character Favorites'}
+              {charactersFavorites?.length
+                ? 'Character favorites'
+                : 'Select favorites'}
             </Text>
 
-            <img src='/icons/heart.svg' alt='icon-heart' />
+            <img
+              src={
+                charactersFavorites?.length
+                  ? '/icons/heart-active.svg'
+                  : '/icons/heart.svg'
+              }
+              alt='icon-heart'
+            />
           </Button>
 
           <Text
