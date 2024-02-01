@@ -17,7 +17,7 @@ import { useCharactersFavorites } from '@/app/(dashboard)/dashboard/_store'
 
 export default function Header() {
   const router = useRouter()
-  const { mutate } = useSignOut()
+  const { mutate: signOut } = useSignOut()
 
   const charactersFavorites = useCharactersFavorites(
     (state) => state.charactersFavorites
@@ -82,11 +82,7 @@ export default function Header() {
             as='p'
             size='md'
             className='font-lucida-reg text-yellow-106-2 uppercase cursor-pointer'
-            onClick={() => {
-              resetCharactersFavorites?.()
-              window.localStorage.clear()
-              return mutate()
-            }}>
+            onClick={() => signOut()}>
             Sign Out
           </Text>
         </div>
